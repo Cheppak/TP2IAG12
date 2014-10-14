@@ -3,20 +3,27 @@ package utn.ia;
 import org.jgap.FitnessFunction;
 import org.jgap.IChromosome;
 
+/**
+* F fitness =  ( 40*A + 10*P + 20*H + 30*E ) / Indice Grasa Corporal
+*	H: Altura. 							Ponderación; 20 
+*	E: El tamaño de las extremidades. 	Ponderacion; 30.
+*	P: Potencia y fuerza.  				Ponderacion; 10.
+*	A: Amplitud del torax. 				Ponderacion; 40.
+*
+* @author Cheppak
+*
+*/
 public class FuncionAptitud extends FitnessFunction  {
 
 	@Override
 	protected double evaluate(IChromosome arg0) {
 
-		int altura = (int) arg0.getGene(Cromosoma.POS_ALTURA).getAllele();
-		int extremidades = (int) arg0.getGene(Cromosoma.POS_EXTREMIDADES).getAllele();
-		int fuerza = (int) arg0.getGene(Cromosoma.POS_FUERZA).getAllele();
-		int torax = (int) arg0.getGene(Cromosoma.POS_TORAX).getAllele();
+		int h = (int) arg0.getGene(Cromosoma.POS_ALTURA).getAllele();
+		int e = (int) arg0.getGene(Cromosoma.POS_EXTREMIDADES).getAllele();
+		int p = (int) arg0.getGene(Cromosoma.POS_FUERZA).getAllele();
+		int a = (int) arg0.getGene(Cromosoma.POS_TORAX).getAllele();
 		
-		
-		//TODO: Aplico funcion aptitud!
-		
-		return 0;
+		return (double) 40*a + 10*p + 20*h + 30*e;
 	}
 
 }
