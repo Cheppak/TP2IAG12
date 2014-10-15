@@ -6,7 +6,7 @@ public class NadadorEspalda extends Nadador{
 
 	@Override
 	public Cromosoma cromosoma() {
-		return new Cromosoma(1,2,3,1);
+		return new Cromosoma(1,2,3,1,2);
 	}
 
 	@Override

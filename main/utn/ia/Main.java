@@ -52,13 +52,14 @@ public class Main {
         controller.setMutationRate(handler.getConfig().getMutationRate());
         controller.setPopulationSize(handler.getConfig().getPopulation());
         controller.setVueltas(handler.getConfig().getVueltas());
-        controller.setIndiceMasaCorporal(handler.getConfig().getIndiceGrasaCorporal());
+        //controller.setIndiceMasaCorporal(handler.getConfig().getIndiceGrasaCorporal());
         try {
             AgResultado result = controller.run();
             System.out.println("Altura " + String.valueOf(result.getMejorCromosoma().getAltura()));
             System.out.println("Extremidades " + String.valueOf(result.getMejorCromosoma().getExtremidades()));
             System.out.println("Fuerza " + String.valueOf(result.getMejorCromosoma().getFuerza()));
             System.out.println("Torax " + String.valueOf(result.getMejorCromosoma().getTorax()));
+            System.out.println("Indice grasa corporal " + String.valueOf(result.getMejorCromosoma().getIGC()));
             System.out.println("Cromosoma elegido: " + result.getUnidad());
             System.out.println("Función Aptitud: " + result.getFitnessValue());
             //System.out.println("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    

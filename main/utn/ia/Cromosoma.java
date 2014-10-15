@@ -4,6 +4,7 @@ import org.jgap.Configuration;
 import org.jgap.Gene;
 import org.jgap.IChromosome;
 import org.jgap.InvalidConfigurationException;
+import org.jgap.impl.DoubleGene;
 import org.jgap.impl.IntegerGene;
 
 /**
@@ -17,26 +18,30 @@ public class Cromosoma {
 	public static final int POS_EXTREMIDADES = 1;
 	public static final int POS_FUERZA = 2;
 	public static final int POS_TORAX = 3;
+	public static final int POS_GRASA = 4;
 	
 	private final int altura;
     private final int extremidades;
     private final int fuerza;
     private final int torax;
+    private final double grasa;
    
 	
-	public Cromosoma(int altura, int extremidades, int fuerza, int torax) {
+	public Cromosoma(int altura, int extremidades, int fuerza, int torax, double grasa) {
 		this.altura = altura;
 		this.extremidades = extremidades;
 		this.fuerza = fuerza;
 		this.torax = torax;
+		this.grasa = grasa;
 	}
 
 	public static Gene[] buildGenes(Configuration conf) throws InvalidConfigurationException {
-        Gene[] genes = new Gene[4];
+        Gene[] genes = new Gene[5];
         genes[0] = new IntegerGene(conf, 0, 3);
         genes[1] = new IntegerGene(conf, 0, 3);
         genes[2] = new IntegerGene(conf, 0, 3);
         genes[3] = new IntegerGene(conf, 0, 3);
+        genes[4] = new DoubleGene(conf, 1, 3);
         return genes;
     }
 	
@@ -46,7 +51,8 @@ public class Cromosoma {
 	      int extremidades = (int) ic.getGene(1).getAllele();
 	      int fuerza = (int) ic.getGene(2).getAllele();
 	      int torax = (int) ic.getGene(3).getAllele();
-	      Cromosoma instance = new Cromosoma(altura, extremidades, fuerza, torax);
+	      double igc = (double) ic.getGene(4).getAllele();
+	      Cromosoma instance = new Cromosoma(altura, extremidades, fuerza, torax, igc);
 	      return instance; 
 	  }
 
@@ -85,6 +91,10 @@ public class Cromosoma {
 
 	public int getAltura() {
 		return altura;
+	}
+	
+	public double getIGC() {
+		return grasa;
 	}
 	
 }

@@ -5,10 +5,9 @@
 	<population>100</population>
 	<mutationRate>100</mutationRate>
 	<vueltas>100</vueltas>
-	<nadadoresCroll>10</nadadoresCroll>
-	<nadadoresPecho>20</nadadoresPecho>
+	<nadadoresCroll>1</nadadoresCroll>
+	<nadadoresPecho>1</nadadoresPecho>
 	<nadadoresFarkel>30</nadadoresFarkel>
-	<nadadoresEspalda>40</nadadoresEspalda>
-	<nadadoresMariposa>60</nadadoresMariposa>
-	<indiceGrasaCorporal>20.0</indiceGrasaCorporal>
+	<nadadoresEspalda>1</nadadoresEspalda>
+	<nadadoresMariposa>2</nadadoresMariposa>
 </config>
