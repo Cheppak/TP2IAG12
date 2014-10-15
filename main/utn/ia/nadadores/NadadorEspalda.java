@@ -9,4 +9,9 @@ public class NadadorEspalda extends Nadador{
 		return new Cromosoma(1,3,4,2);
 	}
 
+	@Override
+	public String nombre() {
+		return "NadadorEspalda";
+	}
+
 }

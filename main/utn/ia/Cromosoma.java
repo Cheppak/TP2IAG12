@@ -6,6 +6,11 @@ import org.jgap.IChromosome;
 import org.jgap.InvalidConfigurationException;
 import org.jgap.impl.IntegerGene;
 
+/**
+ * Implementacion del Cromosoma. <br>
+ * [ALTURA, EXTREMIDADES, FUERZA, TORAX]
+ *	@author Cheppak
+ */
 public class Cromosoma {
 
 	public static final int POS_ALTURA = 0;
@@ -44,5 +49,26 @@ public class Cromosoma {
 	      Cromosoma instance = new Cromosoma(altura, extremidades, fuerza, torax);
 	      return instance; 
 	  }
-	
+
+    /**
+     * Hacen unico al cromosoma, para luego buscarlo ...
+	 * @param altura
+	 * @param extremidades
+	 * @param fuerza
+	 * @param torax
+	 * @return
+	 */
+	public static int valueOf(int altura, int extremidades, int fuerza, int torax) {
+	        return (altura << POS_ALTURA) + (extremidades << POS_EXTREMIDADES) + 
+	               (fuerza << POS_FUERZA) + (torax << POS_TORAX) ;
+	    }
+
+	 /**
+	 * Valor para este cromosoma en particular
+	 * @return
+	 */
+	public int valorCromosoma() {
+	        return valueOf(altura, extremidades, fuerza, torax);
+	    }
+	  
 }

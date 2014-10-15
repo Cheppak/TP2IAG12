@@ -15,6 +15,8 @@ import org.jgap.IChromosome;
 */
 public class FuncionAptitud extends FitnessFunction  {
 
+	public static int INDICE_GRASA_CORPORAL = 20;
+	
 	@Override
 	protected double evaluate(IChromosome arg0) {
 
@@ -23,7 +25,7 @@ public class FuncionAptitud extends FitnessFunction  {
 		int p = (int) arg0.getGene(Cromosoma.POS_FUERZA).getAllele();
 		int a = (int) arg0.getGene(Cromosoma.POS_TORAX).getAllele();
 		
-		return (double) 40*a + 10*p + 20*h + 30*e;
+		return (double) ((40*a + 10*p + 20*h + 30*e) / INDICE_GRASA_CORPORAL);
 	}
 
 }

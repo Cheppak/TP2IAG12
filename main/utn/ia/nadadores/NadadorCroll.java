@@ -6,8 +6,15 @@ public class NadadorCroll extends Nadador {
 
 	@Override
 	public Cromosoma cromosoma() {
-
 		return new Cromosoma(2,1,2,1);
 	}
 
+	@Override
+	public String nombre() {
+		return "NadadorCroll";
+	}
+
+	
+	
 }
+

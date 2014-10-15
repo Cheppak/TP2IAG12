@@ -8,4 +8,9 @@ public class NadadorFartlek extends Nadador {
 	public Cromosoma cromosoma() {
 		return new Cromosoma(2,2,2,2);
 	}
+
+	@Override
+	public String nombre() {
+		return "NadadorFartlek";
+	}
 }
