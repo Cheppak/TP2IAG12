@@ -29,15 +29,6 @@ public class Main {
 
         AgController controller = new AgController();
         
-        //SAX
-        controller.setPopulationSize(10);
-        controller.setMutationRate(10);
-        controller.setVueltas(10);
-        
-        //TODO reemplazar por configurationManager o algo asi
-
-        ConfigurationManager configManager = new ConfigurationManager();
-        
         SAXParserFactory parserFactor = SAXParserFactory.newInstance();
         SAXParser parser = parserFactor.newSAXParser();
         ConfigurationManager handler = new ConfigurationManager();
@@ -52,7 +43,6 @@ public class Main {
         controller.setMutationRate(handler.getConfig().getMutationRate());
         controller.setPopulationSize(handler.getConfig().getPopulation());
         controller.setVueltas(handler.getConfig().getVueltas());
-        //controller.setIndiceMasaCorporal(handler.getConfig().getIndiceGrasaCorporal());
         try {
             AgResultado result = controller.run();
             System.out.println("Altura " + String.valueOf(result.getMejorCromosoma().getAltura()));
@@ -62,7 +52,6 @@ public class Main {
             System.out.println("Indice grasa corporal " + String.valueOf(result.getMejorCromosoma().getIGC()));
             System.out.println("Cromosoma elegido: " + result.getUnidad());
             System.out.println("Función Aptitud: " + result.getFitnessValue());
-            //System.out.println("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    
             //System.out.println("Nombre unidad: " + String.valueOf(result.getUnidad().nombreByCromosoma(result.getMejorCromosoma())));
         } catch(Exception e) {
             throw new RuntimeException("Error al ejecutar", e);
