@@ -43,7 +43,7 @@ public class Main {
         ConfigurationManager handler = new ConfigurationManager();
          
         parser.parse(new File("CONFIG/Config.xml"), handler);
-        
+
         controller.setqNadadoresCroll(handler.getConfig().getNadadoresCroll());
         controller.setqNadadoresEspalda(handler.getConfig().getNadadoresEspalda());
         controller.setqNadadoresFartlek(handler.getConfig().getNadadoresFarkel());
@@ -59,6 +59,8 @@ public class Main {
             System.out.println("Extremidades " + String.valueOf(result.getMejorCromosoma().getExtremidades()));
             System.out.println("Fuerza " + String.valueOf(result.getMejorCromosoma().getFuerza()));
             System.out.println("Torax " + String.valueOf(result.getMejorCromosoma().getTorax()));
+            System.out.println("Cromosoma elegido: " + result.getUnidad());
+            System.out.println("Función Aptitud: " + result.getFitnessValue());
             //System.out.println("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    
             //System.out.println("Nombre unidad: " + String.valueOf(result.getUnidad().nombreByCromosoma(result.getMejorCromosoma())));
         } catch(Exception e) {

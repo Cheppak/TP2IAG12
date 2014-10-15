@@ -30,7 +30,7 @@ public class MapCromosomas {
     public final static Map<Integer, Nadador> map;
     
     private static void addCromosoma(Nadador nadador) {
-        map.put(nadador.cromosoma().valorCromosoma(), nadador);
+        //map.put(nadador.cromosoma().valorCromosoma(), nadador);
         cromosomas.add(nadador.cromosoma());
     }
         

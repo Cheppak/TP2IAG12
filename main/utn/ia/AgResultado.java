@@ -12,18 +12,24 @@ import utn.ia.nadadores.Nadador;
 public class AgResultado {
 
     private Cromosoma mejorCromosoma;
-    private Nadador nadador;
+    private int fitnessValue;
+    private String nadador;
 
     public AgResultado(IChromosome chromosome) {
         mejorCromosoma = Cromosoma.create(chromosome);
-        nadador = MapCromosomas.map.get(mejorCromosoma.valorCromosoma());
+        nadador = mejorCromosoma.valorCromosoma();
+        fitnessValue = (int) chromosome.getFitnessValue();
     }
 
     public Cromosoma getMejorCromosoma() {
         return mejorCromosoma;
     }
 
-    public Nadador getUnidad() {
+    public String getUnidad() {
         return nadador;
+    }
+    
+    public int getFitnessValue() {
+    	return fitnessValue;
     }
 }
