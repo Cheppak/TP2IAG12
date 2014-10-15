@@ -18,10 +18,10 @@ public class Cromosoma {
 	public static final int POS_FUERZA = 2;
 	public static final int POS_TORAX = 3;
 	
-	protected final int altura;
-    protected final int extremidades;
-    protected final int fuerza;
-    protected final int torax;
+	private final int altura;
+    private final int extremidades;
+    private final int fuerza;
+    private final int torax;
 	
 	public Cromosoma(int altura, int extremidades, int fuerza, int torax) {
 		this.altura = altura;
@@ -68,7 +68,24 @@ public class Cromosoma {
 	 * @return
 	 */
 	public int valorCromosoma() {
-	        return valueOf(altura, extremidades, fuerza, torax);
+	        return valueOf(getAltura(), getExtremidades(), getFuerza(), getTorax());
 	    }
 	  
+	public int getExtremidades() {
+		return extremidades;
+	}
+
+	public int getFuerza() {
+		return fuerza;
+	}
+
+	public int getTorax() {
+		return torax;
+	}
+
+	public int getAltura() {
+		return altura;
+	}
+	
+	
 }

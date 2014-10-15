@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--  Aqui configuramos los valores para las corridas -->
-<!--  Cada ejecucion se ejecuta por medio de la clase Main  -->
+<!--  Cada ejecucion se realiza por medio de la clase Main  -->
+<population>100</population>
+<mutationRate>100</mutationRate>
+<nadadoresCroll>10</nadadoresCroll>
+<nadadoresPecho>20</nadadoresPecho>
+<nadadoresFarkel>30</nadadoresFarkel>
+<nadadoresEspalda>40</nadadoresEspalda>
+<nadadoresMariposa>60</nadadoresMariposa>

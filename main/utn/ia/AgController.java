@@ -40,7 +40,7 @@ public class AgController {
 		MutationOperator mutation = new MutationOperator(config);
 		mutation.setMutationRate(mutationRate);
 		Genotype population = Genotype.randomInitialGenotype(config);
-		population.evolve(vueltas);
+		population.evolve(getVueltas());
 		
 		return new AgResultado(population.getFittestChromosome());
 	}
@@ -91,6 +91,14 @@ public class AgController {
 
 	public void setqNadadoresPecho(int qNadadoresPecho) {
 		this.qNadadoresPecho = qNadadoresPecho;
+	}
+
+	public int getVueltas() {
+		return vueltas;
+	}
+
+	public void setVueltas(int vueltas) {
+		this.vueltas = vueltas;
 	}
 	
 	

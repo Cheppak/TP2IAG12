@@ -1,5 +1,15 @@
 package utn.ia;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 
 public class Main {
 
@@ -10,26 +20,51 @@ public class Main {
         //SAX
         controller.setPopulationSize(10);
         controller.setMutationRate(10);
-        /*        controller.setqArqueros(Integer.valueOf(this.edtCantArqueros.getText()));
-        controller.setqArquerosCaballo(Integer.valueOf(this.edtCantArqCaballo.getText()));
-        controller.setqCaballeria(Integer.valueOf(this.edtCantCaballeria.getText()));
-        controller.setqRecolectores(Integer.valueOf(this.edtCantRecolectores.getText()));
-        controller.setqRecursos(Integer.valueOf(this.edtRecursos.getText()));
-        controller.setqSoldados(Integer.valueOf(this.edtCantInfanteria.getText()));
-        controller.setqVueltas(Integer.valueOf(this.edtCantVueltas.getText()));
+        controller.setVueltas(10);
+        
+        //TODO reemplazar por configurationManager o algo asi
+        /*Main configManager = new Main();
+        configManager.getConfig();*/
+        
+        //DESCOMENTAR PAR PROBAR !!!! 
+        /*controller.setqNadadoresCroll();
+        controller.setqNadadoresEspalda();
+        controller.setqNadadoresFartlek();
+        controller.setqNadadoresMariposa();
+        controller.setqNadadoresPecho();
+        */
+        
         try {
             AgResultado result = controller.run();
-            this.lblResultAtaque.setText("Ataque " + String.valueOf(result.getMejorCromosoma().getAtaque()));
-            this.lblResultCosto.setText("Costo " + String.valueOf(result.getMejorCromosoma().getCosto()));
-            this.lblResultDefensa.setText("Defensa " + String.valueOf(result.getMejorCromosoma().getDefensa()));
-            this.lblResultRecoleccion.setText("Recoleccion " + String.valueOf(result.getMejorCromosoma().getRecolector()));
-            this.lblResultTiempo.setText("Tiempo " + String.valueOf(result.getMejorCromosoma().getTiempo()));
-            this.lblResultCantidad.setText("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    
-            this.lblResultUnidad.setText("Nombre unidad: " + String.valueOf(result.getUnidad().nombreByCromosoma(result.getMejorCromosoma())));
+            System.out.println("Altura " + String.valueOf(result.getMejorCromosoma().getAltura()));
+            System.out.println("Extremidades " + String.valueOf(result.getMejorCromosoma().getExtremidades()));
+            System.out.println("Fuerza " + String.valueOf(result.getMejorCromosoma().getFuerza()));
+            System.out.println("Torax " + String.valueOf(result.getMejorCromosoma().getTorax()));
+            //System.out.println("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    
+            //System.out.println("Nombre unidad: " + String.valueOf(result.getUnidad().nombreByCromosoma(result.getMejorCromosoma())));
         } catch(Exception e) {
             throw new RuntimeException("Error al ejecutar", e);
-        }*/
-    }
+        }
+	}
 	
-	
+     private void getConfig(){
+ 		SAXParserFactory spf = SAXParserFactory.newInstance();
+
+ 		try {
+
+			SAXParser sp = spf.newSAXParser();
+			DefaultHandler dh = new DefaultHandler();
+			sp.parse(new File("CONFIG/Config.xml"),dh);
+			sp.getProperty("population");
+
+ 		}catch(SAXException se) {
+			se.printStackTrace();
+		}catch(ParserConfigurationException pce) {
+			pce.printStackTrace();
+		}catch (IOException ie) {
+			ie.printStackTrace();
+		}
+ 		
+    	 
+     }
 }
