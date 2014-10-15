@@ -1,7 +1,13 @@
 package utn.config;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -44,25 +50,6 @@ public class ConfigurationManager  extends DefaultHandler  {
             	   getConfig().setVueltas(Integer.parseInt(text));
             	   break;
                }
-               case "nadadoresCroll": {
-                    getConfig().setNadadoresCroll(Integer.parseInt(text));
-                    break;
-               }
-               case "nadadoresFarkel": {
-            	   getConfig().setNadadoresFarkel(Integer.parseInt(text));
-            	   break;
-               }
-               case "nadadoresEspalda": {
-            	   getConfig().setNadadoresEspalda(Integer.parseInt(text));
-            	   break;
-               }
-               case "nadadoresMariposa": {
-            	   getConfig().setNadadoresMariposa(Integer.parseInt(text));
-            	   break;
-               }
-               case "indiceGrasaCorporal":{
-            	   getConfig().setIndiceGrasaCorporal(Double.parseDouble(text));
-               }
           }
      }
 
@@ -79,5 +66,17 @@ public class ConfigurationManager  extends DefaultHandler  {
 		this.config = config;
 	}
 
+
+	public void parse() throws SAXException, IOException, ParserConfigurationException{
+		
+	    SAXParserFactory parserFactor = SAXParserFactory.newInstance();
+		SAXParser parser = parserFactor.newSAXParser();
+		parser.parse(new File("CONFIG/Config.xml"), this);
+	}
+	
+	public ConfigurationManager() throws SAXException, IOException, ParserConfigurationException{
+		this.parse();
+	}
 	
 }
+

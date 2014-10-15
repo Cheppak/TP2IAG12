@@ -29,20 +29,11 @@ public class Main {
 
         AgController controller = new AgController();
         
-        SAXParserFactory parserFactor = SAXParserFactory.newInstance();
-        SAXParser parser = parserFactor.newSAXParser();
-        ConfigurationManager handler = new ConfigurationManager();
-         
-        parser.parse(new File("CONFIG/Config.xml"), handler);
-
-        controller.setqNadadoresCroll(handler.getConfig().getNadadoresCroll());
-        controller.setqNadadoresEspalda(handler.getConfig().getNadadoresEspalda());
-        controller.setqNadadoresFartlek(handler.getConfig().getNadadoresFarkel());
-        controller.setqNadadoresMariposa(handler.getConfig().getNadadoresMariposa());
-        controller.setqNadadoresPecho(handler.getConfig().getNadadoresPecho());
-        controller.setMutationRate(handler.getConfig().getMutationRate());
-        controller.setPopulationSize(handler.getConfig().getPopulation());
-        controller.setVueltas(handler.getConfig().getVueltas());
+        ConfigurationManager config = new ConfigurationManager();
+        
+        controller.setMutationRate(config.getConfig().getMutationRate());
+        controller.setPopulationSize(config.getConfig().getPopulation());
+        controller.setVueltas(config.getConfig().getVueltas());
         try {
             AgResultado result = controller.run();
             System.out.println("Altura " + String.valueOf(result.getMejorCromosoma().getAltura()));
