@@ -27,12 +27,12 @@ public class Main {
         configManager.getConfig();*/
         
         //DESCOMENTAR PAR PROBAR !!!! 
-        /*controller.setqNadadoresCroll();
-        controller.setqNadadoresEspalda();
-        controller.setqNadadoresFartlek();
-        controller.setqNadadoresMariposa();
-        controller.setqNadadoresPecho();
-        */
+        controller.setqNadadoresCroll(10);
+        controller.setqNadadoresEspalda(40);
+        controller.setqNadadoresFartlek(30);
+        controller.setqNadadoresMariposa(60);
+        controller.setqNadadoresPecho(20);
+        
         
         try {
             AgResultado result = controller.run();
@@ -40,6 +40,8 @@ public class Main {
             System.out.println("Extremidades " + String.valueOf(result.getMejorCromosoma().getExtremidades()));
             System.out.println("Fuerza " + String.valueOf(result.getMejorCromosoma().getFuerza()));
             System.out.println("Torax " + String.valueOf(result.getMejorCromosoma().getTorax()));
+            System.out.println("Cromosoma elegido: " + result.getUnidad());
+            System.out.println("Función Aptitud: " + result.getFitnessValue());
             //System.out.println("Cantidad " + String.valueOf(result.getMejorCromosoma().getCantidad()));                    
             //System.out.println("Nombre unidad: " + String.valueOf(result.getUnidad().nombreByCromosoma(result.getMejorCromosoma())));
         } catch(Exception e) {
