@@ -37,11 +37,11 @@ public class Cromosoma {
 
 	public static Gene[] buildGenes(Configuration conf) throws InvalidConfigurationException {
         Gene[] genes = new Gene[5];
-        genes[0] = new IntegerGene(conf, 0, 3);
-        genes[1] = new IntegerGene(conf, 0, 3);
-        genes[2] = new IntegerGene(conf, 0, 3);
-        genes[3] = new IntegerGene(conf, 0, 3);
-        genes[4] = new DoubleGene(conf, 1, 3);
+        genes[0] = new IntegerGene(conf, 0, 15);
+        genes[1] = new IntegerGene(conf, 0, 15);
+        genes[2] = new IntegerGene(conf, 0, 15);
+        genes[3] = new IntegerGene(conf, 0, 15);
+        genes[4] = new DoubleGene(conf, 1, 15);
         return genes;
     }
 	
