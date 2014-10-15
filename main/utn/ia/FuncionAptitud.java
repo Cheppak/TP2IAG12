@@ -24,7 +24,7 @@ public class FuncionAptitud extends FitnessFunction  {
 		int e = (int) arg0.getGene(Cromosoma.POS_EXTREMIDADES).getAllele();
 		int p = (int) arg0.getGene(Cromosoma.POS_FUERZA).getAllele();
 		int a = (int) arg0.getGene(Cromosoma.POS_TORAX).getAllele();
-		double igc = (double) arg0.getGene(Cromosoma.POS_GRASA).getAllele();
+		int igc = (int) arg0.getGene(Cromosoma.POS_GRASA).getAllele();
 		
 		return (double) ((40*a + 10*p + 20*h + 30*e) / igc);
 	}

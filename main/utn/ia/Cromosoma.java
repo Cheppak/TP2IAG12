@@ -24,10 +24,10 @@ public class Cromosoma {
     private final int extremidades;
     private final int fuerza;
     private final int torax;
-    private final double grasa;
+    private final int grasa;
    
 	
-	public Cromosoma(int altura, int extremidades, int fuerza, int torax, double grasa) {
+	public Cromosoma(int altura, int extremidades, int fuerza, int torax, int grasa) {
 		this.altura = altura;
 		this.extremidades = extremidades;
 		this.fuerza = fuerza;
@@ -41,7 +41,7 @@ public class Cromosoma {
         genes[1] = new IntegerGene(conf, 0, 15);
         genes[2] = new IntegerGene(conf, 0, 15);
         genes[3] = new IntegerGene(conf, 0, 15);
-        genes[4] = new DoubleGene(conf, 1, 15);
+        genes[4] = new IntegerGene(conf, 1, 15);
         return genes;
     }
 	
@@ -51,7 +51,7 @@ public class Cromosoma {
 	      int extremidades = (int) ic.getGene(1).getAllele();
 	      int fuerza = (int) ic.getGene(2).getAllele();
 	      int torax = (int) ic.getGene(3).getAllele();
-	      double igc = (double) ic.getGene(4).getAllele();
+	      int igc = (int) ic.getGene(4).getAllele();
 	      Cromosoma instance = new Cromosoma(altura, extremidades, fuerza, torax, igc);
 	      return instance; 
 	  }
@@ -93,7 +93,7 @@ public class Cromosoma {
 		return altura;
 	}
 	
-	public double getIGC() {
+	public int getIGC() {
 		return grasa;
 	}
 	
