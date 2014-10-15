@@ -3,17 +3,29 @@ package utn.ia;
 import java.io.File;
 import java.io.IOException;
 
+
+
+
+
+
+
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+
+
+
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
+
+import utn.config.Config;
+import utn.config.ConfigurationManager;
 
 
 public class Main {
 
-	public static void main (String [ ] args) {
+	public static void main (String [ ] args) throws ParserConfigurationException, SAXException, IOException {
 
         AgController controller = new AgController();
         
@@ -23,17 +35,24 @@ public class Main {
         controller.setVueltas(10);
         
         //TODO reemplazar por configurationManager o algo asi
-        /*Main configManager = new Main();
-        configManager.getConfig();*/
+
+        ConfigurationManager configManager = new ConfigurationManager();
         
-        //DESCOMENTAR PAR PROBAR !!!! 
-        /*controller.setqNadadoresCroll();
-        controller.setqNadadoresEspalda();
-        controller.setqNadadoresFartlek();
-        controller.setqNadadoresMariposa();
-        controller.setqNadadoresPecho();
-        */
+        SAXParserFactory parserFactor = SAXParserFactory.newInstance();
+        SAXParser parser = parserFactor.newSAXParser();
+        ConfigurationManager handler = new ConfigurationManager();
+         
+        parser.parse(new File("CONFIG/Config.xml"), handler);
         
+        controller.setqNadadoresCroll(handler.getConfig().getNadadoresCroll());
+        controller.setqNadadoresEspalda(handler.getConfig().getNadadoresEspalda());
+        controller.setqNadadoresFartlek(handler.getConfig().getNadadoresFarkel());
+        controller.setqNadadoresMariposa(handler.getConfig().getNadadoresMariposa());
+        controller.setqNadadoresPecho(handler.getConfig().getNadadoresPecho());
+        controller.setMutationRate(handler.getConfig().getMutationRate());
+        controller.setPopulationSize(handler.getConfig().getPopulation());
+        controller.setVueltas(handler.getConfig().getVueltas());
+        controller.setIndiceMasaCorporal(handler.getConfig().getIndiceGrasaCorporal());
         try {
             AgResultado result = controller.run();
             System.out.println("Altura " + String.valueOf(result.getMejorCromosoma().getAltura()));
@@ -47,24 +66,4 @@ public class Main {
         }
 	}
 	
-     private void getConfig(){
- 		SAXParserFactory spf = SAXParserFactory.newInstance();
-
- 		try {
-
-			SAXParser sp = spf.newSAXParser();
-			DefaultHandler dh = new DefaultHandler();
-			sp.parse(new File("CONFIG/Config.xml"),dh);
-			sp.getProperty("population");
-
- 		}catch(SAXException se) {
-			se.printStackTrace();
-		}catch(ParserConfigurationException pce) {
-			pce.printStackTrace();
-		}catch (IOException ie) {
-			ie.printStackTrace();
-		}
- 		
-    	 
-     }
 }

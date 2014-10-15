@@ -25,6 +25,7 @@ public class AgController {
 	private int qNadadoresMariposa;
 	private int qNadadoresEspalda;
 	private int qNadadoresFartlek;
+	private double indiceMasaCorporal;
 
 	
 	public AgResultado run() throws InvalidConfigurationException{
@@ -99,6 +100,14 @@ public class AgController {
 
 	public void setVueltas(int vueltas) {
 		this.vueltas = vueltas;
+	}
+
+	public double getIndiceMasaCorporal() {
+		return indiceMasaCorporal;
+	}
+
+	public void setIndiceMasaCorporal(double indiceMasaCorporal) {
+		this.indiceMasaCorporal = indiceMasaCorporal;
 	}
 	
 	
